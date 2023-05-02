@@ -10,7 +10,6 @@ export default function NavBar() {
         </Link>
         <div className="flex items-center">
           <Link className="text-lg mr-4" href="/">
-            {" "}
             Home
           </Link>
           <Link className="text-lg mr-4" href="/about">
