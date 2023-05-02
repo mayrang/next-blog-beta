@@ -1,6 +1,7 @@
 import React from "react";
 import avatar from "../../public/images/avatar.jpg";
 import Image from "next/image";
+import Link from "next/link";
 export default function AvatarCard() {
   return (
     <article className="w-full flex flex-col items-center justify-center relative py-10">
@@ -13,6 +14,9 @@ export default function AvatarCard() {
         프론트엔드 개발 공부를 하고 있습니다.
         <br /> 노트북을 뭐 살지 고민중..
       </span>
+      <Link className="mt-4 font-semibold p-2 bg-yellow-300 rounded-full" href="/contact">
+        Contact me
+      </Link>
     </article>
   );
 }
