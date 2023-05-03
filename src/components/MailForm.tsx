@@ -1,11 +1,7 @@
 "use client";
+import { EmailFormData } from "@/utils/type";
 import React, { useState } from "react";
 
-type EmailFormData = {
-  emailAdress: string;
-  subject: string;
-  message: string;
-};
 export default function MailForm() {
   const [emailFormData, setEmailFormData] = useState<EmailFormData>({
     emailAdress: "",
@@ -16,8 +12,32 @@ export default function MailForm() {
   const changeEmailFormData = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setEmailFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  const submitEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const result = await fetch("/api/contact/email", {
+      method: "POST",
+      body: JSON.stringify(emailFormData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await result.json();
+    if (result?.ok) {
+      setEmailFormData({
+        emailAdress: "",
+        subject: "",
+        message: "",
+      });
+      alert(data?.message || "이메일을 전송했습니다.");
+    } else {
+      console.log(data);
+      alert(data?.error || "서버에서 실패");
+    }
+  };
   return (
-    <form className="p-8 rounded-md bg-green-400">
+    <form onSubmit={submitEmail} className="p-8 rounded-md bg-green-400">
       <section className="my-4">
         <label htmlFor="adress" className="block text-sm  mb-2 font-semibold">
           Your Email
