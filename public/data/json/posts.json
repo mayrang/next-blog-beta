@@ -34,6 +34,10 @@
             "imageUrl": "https://img1.daumcdn.net/thumb/C217x122/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXFWmT%2FbtrVCf1v4cv%2FKjMvZ2JIuQ6QhtrKKKaubk%2Fimg.png",
             "createAT": "2023-01-07 12:33",
             "category": "node"
+        },
+        {
+            "id": 5,
+            "title": "Next.js 13버전에서 fetch 사용 시 fetch failed 에러"
         }
     ]
    
